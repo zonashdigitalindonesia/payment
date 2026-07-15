@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Pembayaran - Zonash Digital Indonesia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #439a97;
+            --secondary-color: #62b6b2;
+            --background-color: #e3f4f4;
+            --card-background: #ffffff;
+            --text-color: #2c3e50;
+            --border-radius: 16px;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(67, 154, 151, 0.15);
+            overflow: hidden;
+            padding-bottom: 30px;
+        }
+        .header {
+            background-color: var(--primary-color);
+            padding: 24px;
+            text-align: center;
+            color: white;
+        }
+        .header h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 24px;
+        }
+        .payment-method {
+            border: 2px solid #e3f4f4;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .payment-method:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        .method-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .qris-image {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            margin: 15px auto;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .qris-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+        }
+        .bank-details {
+            background-color: #f8fbfb;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+        .bank-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+        }
+        .copy-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .copy-btn:active {
+            background-color: var(--secondary-color);
+        }
+        .instructions {
+            background-color: #f5fcfc;
+            padding: 16px;
+            border-radius: var(--border-radius);
+            margin-bottom: 24px;
+        }
+        .instructions h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+        .instructions ol {
+            padding-left: 20px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .whatsapp-btn:hover {
+            background-color: #20ba5a;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #95a5a6;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Zonash Digital Indonesia</h1>
+            <p>Halaman Pembayaran Resmi</p>
+        </div>
+        <div class="content">
+            <!-- METODE QRIS -->
+            <div class="payment-method">
+                <div class="method-title">Scan QRIS</div>
+                <p style="font-size: 0.85rem; color: #7f8c8d;">Bisa discan pakai GoPay, OVO, DANA, LinkAja, & Mobile Banking</p>
+                <div class="qris-image">
+                    <img src="https://cdn.phototourl.com/free/2026-07-15-18d0a55c-0856-4905-894a-5524858e3a61.jpg" alt="QRIS Zonash Digital Indonesia">
+                </div>
+            </div>
+
+            <!-- METODE BANK BCA -->
+            <div class="payment-method">
+                <div class="method-title">Transfer Bank BCA</div>
+                <div class="bank-details">
+                    <div><strong>No. Rekening:</strong></div>
+                    <div class="bank-row">
+                        <span id="rekBca">4220380829</span>
+                        <button class="copy-btn" onclick="copyText('rekBca')">Salin</button>
+                    </div>
+                    <div style="margin-top: 8px;"><strong>Atas Nama:</strong> CARLA ELANNESTYA PURWANTO</div>
+                </div>
+            </div>
+
+            <!-- METODE BANK BNI -->
+            <div class="payment-method">
+                <div class="method-title">Transfer Bank BNI</div>
+                <div class="bank-details">
+                    <div><strong>No. Rekening:</strong></div>
+                    <div class="bank-row">
+                        <span id="rekBni">1992216457</span>
+                        <button class="copy-btn" onclick="copyText('rekBni')">Salin</button>
+                    </div>
+                    <div style="margin-top: 8px;"><strong>Atas Nama:</strong> CARLA ELANNESTYA PURWANTO</div>
+                </div>
+            </div>
+
+            <!-- METODE E-WALLET DANA -->
+            <div class="payment-method">
+                <div class="method-title">E-Wallet DANA</div>
+                <div class="bank-details">
+                    <div><strong>No. DANA:</strong></div>
+                    <div class="bank-row">
+                        <span id="noDana">081548990582</span>
+                        <button class="copy-btn" onclick="copyText('noDana')">Salin</button>
+                    </div>
+                    <div style="margin-top: 8px;"><strong>Atas Nama:</strong> CARLA ELANNESTYA PURWANTO</div>
+                </div>
+            </div>
+
+            <!-- INSTRUKSI -->
+            <div class="instructions">
+                <h3>Cara Pembayaran:</h3>
+                <ol>
+                    <li>Pilih metode pembayaran (QRIS, Bank, atau DANA).</li>
+                    <li>Lakukan pembayaran sesuai nominal transaksi.</li>
+                    <li>Simpan/Screenshot bukti bayar.</li>
+                    <li>Klik tombol di bawah untuk konfirmasi.</li>
+                </ol>
+            </div>
+
+            <!-- TOMBOL WA -->
+            <a href="https://wa.me/6281548990582?text=Halo%20Zonash%20Digital%20Indonesia,%20saya%20ingin%20mengirimkan%20bukti%20pembayaran" class="whatsapp-btn" target="_blank">
+                Kirim Bukti via WhatsApp
+            </a>
+            <div class="footer">
+                🔐 Pembayaran Aman & Terverifikasi
+            </div>
+        </div>
+    </div>
+    <script>
+        function copyText(id) {
+            const textToCopy = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert("Berhasil disalin: " + textToCopy);
+            }).catch(err => {
+                console.error("Gagal menyalin teks: ", err);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -7,11 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #439a97;
-            --secondary-color: #62b6b2;
-            --background-color: #e3f4f4;
+            --primary-gradient: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
+            --primary-color: #0052d4;
+            --secondary-color: #4364f7;
+            --background-color: #f4f7fc;
             --card-background: #ffffff;
-            --text-color: #2c3e50;
+            --text-color: #1e293b;
             --border-radius: 16px;
         }
         * {
@@ -34,39 +35,74 @@
             max-width: 480px;
             background-color: var(--card-background);
             border-radius: var(--border-radius);
-            box-shadow: 0 10px 30px rgba(67, 154, 151, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 82, 212, 0.1);
             overflow: hidden;
             padding-bottom: 30px;
         }
         .header {
-            background-color: var(--primary-color);
-            padding: 24px;
+            background: var(--primary-gradient);
+            padding: 35px 24px 30px 24px;
             text-align: center;
             color: white;
+            position: relative;
+        }
+        .badge-official {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .logo-container {
+            background: white;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            padding: 8px;
+        }
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
         }
         .header h1 {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 700;
             margin-bottom: 4px;
+            letter-spacing: 0.5px;
         }
         .header p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.9;
+            font-style: italic;
         }
         .content {
             padding: 24px;
         }
         .payment-method {
-            border: 2px solid #e3f4f4;
+            border: 1px solid #e2e8f0;
             border-radius: var(--border-radius);
             padding: 20px;
             margin-bottom: 20px;
             text-align: center;
             transition: all 0.3s ease;
+            background: #ffffff;
         }
         .payment-method:hover {
             border-color: var(--secondary-color);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 100, 247, 0.08);
         }
         .method-title {
             font-weight: 700;
@@ -84,9 +120,9 @@
             height: auto;
             margin: 15px auto;
             background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 8px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -98,47 +134,54 @@
             border-radius: 6px;
         }
         .bank-details {
-            background-color: #f8fbfb;
-            padding: 12px;
-            border-radius: 8px;
+            background-color: #f8fafc;
+            padding: 14px;
+            border-radius: 10px;
             margin-top: 10px;
             font-size: 0.95rem;
             text-align: left;
+            border-left: 4px solid var(--secondary-color);
         }
         .bank-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 8px;
+            margin-top: 6px;
         }
         .copy-btn {
             background-color: var(--primary-color);
             color: white;
             border: none;
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.8rem;
             font-weight: 600;
+            transition: background 0.2s;
         }
-        .copy-btn:active {
+        .copy-btn:hover {
             background-color: var(--secondary-color);
         }
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
         .instructions {
-            background-color: #f5fcfc;
+            background-color: #f0f4ff;
             padding: 16px;
             border-radius: var(--border-radius);
             margin-bottom: 24px;
+            border: 1px dashed #cbd5e1;
         }
         .instructions h3 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-bottom: 8px;
-            color: var(--text-color);
+            color: var(--primary-color);
         }
         .instructions ol {
             padding-left: 20px;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #475569;
         }
         .whatsapp-btn {
             display: flex;
@@ -152,30 +195,40 @@
             border-radius: var(--border-radius);
             font-weight: 700;
             text-align: center;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
         }
         .whatsapp-btn:hover {
             background-color: #20ba5a;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
         }
         .footer {
             text-align: center;
             font-size: 0.8rem;
-            color: #95a5a6;
-            margin-top: 20px;
+            color: #94a3b8;
+            margin-top: 25px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
+            <!-- TULISAN HALAMAN PEMBAYARAN RESMI -->
+            <div class="badge-official">Halaman Pembayaran Resmi</div>
+
+            <!-- LOGO UTAMA -->
+            <div class="logo-container">
+                <img src="https://cdn.phototourl.com/free/2026-07-15-b129ffd7-77b5-4d1a-8282-016ea8843ec9.png" alt="Logo Zonash Digital Indonesia">
+            </div>
             <h1>Zonash Digital Indonesia</h1>
-            <p>Halaman Pembayaran Resmi</p>
+            <p>Solusi Digital, Hasil Maksimal</p>
         </div>
         <div class="content">
             <!-- METODE QRIS -->
             <div class="payment-method">
                 <div class="method-title">Scan QRIS</div>
-                <p style="font-size: 0.85rem; color: #7f8c8d;">Bisa discan pakai GoPay, OVO, DANA, LinkAja, & Mobile Banking</p>
+                <p style="font-size: 0.85rem; color: #64748b;">Bisa discan pakai GoPay, OVO, DANA, LinkAja, & Mobile Banking</p>
                 <div class="qris-image">
                     <img src="https://cdn.phototourl.com/free/2026-07-15-18d0a55c-0856-4905-894a-5524858e3a61.jpg" alt="QRIS Zonash Digital Indonesia">
                 </div>
@@ -187,7 +240,7 @@
                 <div class="bank-details">
                     <div><strong>No. Rekening:</strong></div>
                     <div class="bank-row">
-                        <span id="rekBca">4220380829</span>
+                        <span id="rekBca" style="font-weight: 600; letter-spacing: 0.5px;">4220380829</span>
                         <button class="copy-btn" onclick="copyText('rekBca')">Salin</button>
                     </div>
                     <div style="margin-top: 8px;"><strong>Atas Nama:</strong> CARLA ELANNESTYA PURWANTO</div>
@@ -200,7 +253,7 @@
                 <div class="bank-details">
                     <div><strong>No. Rekening:</strong></div>
                     <div class="bank-row">
-                        <span id="rekBni">1992216457</span>
+                        <span id="rekBni" style="font-weight: 600; letter-spacing: 0.5px;">1992216457</span>
                         <button class="copy-btn" onclick="copyText('rekBni')">Salin</button>
                     </div>
                     <div style="margin-top: 8px;"><strong>Atas Nama:</strong> CARLA ELANNESTYA PURWANTO</div>
@@ -213,7 +266,7 @@
                 <div class="bank-details">
                     <div><strong>No. DANA:</strong></div>
                     <div class="bank-row">
-                        <span id="noDana">081548990582</span>
+                        <span id="noDana" style="font-weight: 600; letter-spacing: 0.5px;">081548990582</span>
                         <button class="copy-btn" onclick="copyText('noDana')">Salin</button>
                     </div>
                     <div style="margin-top: 8px;"><strong>Atas Nama:</strong> CARLA ELANNESTYA PURWANTO</div>
@@ -226,8 +279,8 @@
                 <ol>
                     <li>Pilih metode pembayaran (QRIS, Bank, atau DANA).</li>
                     <li>Lakukan pembayaran sesuai nominal transaksi.</li>
-                    <li>Simpan/Screenshot bukti bayar.</li>
-                    <li>Klik tombol di bawah untuk konfirmasi.</li>
+                    <li>Simpan atau Screenshot bukti pembayaran Anda.</li>
+                    <li>Klik tombol WhatsApp di bawah untuk konfirmasi instan.</li>
                 </ol>
             </div>
 
@@ -236,7 +289,7 @@
                 Kirim Bukti via WhatsApp
             </a>
             <div class="footer">
-                🔐 Pembayaran Aman & Terverifikasi
+                🔒 Pembayaran Aman & Terverifikasi Otomatis
             </div>
         </div>
     </div>
